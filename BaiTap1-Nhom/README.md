@@ -88,7 +88,7 @@ class Show_color{
 ```
 
 Vậy bây giờ ta cần tìm cách để gán 2 tham số vào, ta nhận thấy tham số thứ 2 đến từ `$this->color`, ta dễ dàng thay đổi từ vì chúng được unserialize, còn tham số đầu tiên dùng truy vấn
-`$this->type->adu`, như vậy ta phải thay nó bằng một object mà `object->adu = 'system'`
+`$this->type->adu`, như vậy ta phải thay `$this->type` bằng một `object` mà `object->adu = 'system'`
 
 Trong 3 class trong source code không có class nào có thuộc tính `adu` cả, tuy nhiên ta để ý class `do_nothing` có một magic method `__get()`
 
@@ -112,7 +112,7 @@ class do_nothing{
 Với magic method `__get()` này thì các truy vấn như `object->adu` sẽ không truy vấn trực tiếp đến biến `adu` trong class nữa mà sẽ được truyền vào hàm `__get($method)` với `$method = 'adu'`
 
 Nhìn vào hàm `__get($method)`, ta nhận thấy nếu biến `$this->why` được set giá trị thì hàm sẽ luôn trả về `$this->i_use_this` bất kể giá trị `$method` có là gì, vậy ta chỉ cần thay
-`$this->type` ở class `Show_color` là một object thuộc class `do_nothing` với tham số `$this->why = 1` và `$this->i_use_this = 'ls'` (tham số `$this->why` được set tùy ý)
+`$this->type` ở class `Show_color` là một object thuộc class `do_nothing` với tham số `$this->why = 1` và `$this->i_use_this = 'system'` (tham số `$this->why` được set tùy ý)
 
 Như vậy khi hủy đối tượng thuộc class `Show_color`, server gọi hàm `call_user_func($this->type->adu,$this->color)` với `$this->type->adu = $this->type->i_use_this = 'system'` và `$this->color = 'ls'`
 

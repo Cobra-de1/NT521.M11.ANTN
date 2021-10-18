@@ -87,7 +87,7 @@ class Show_color{
 }
 ```
 
-Vậy bây giờ ta cần tìm cách để gán 2 tham số vào, ta nhận thấy tham số thứ 2 đến từ `$this->color`, ta dễ dàng thay đổi từ vì chúng được unserialize, còn tham số đầu tiên dùng truy vấn
+Vậy bây giờ ta cần tìm cách để gán 2 tham số vào, ta nhận thấy tham số thứ 2 đến từ `$this->color`, ta dễ dàng thay đổi vì chúng được unserialize từ dữ liệu ta đưa vào biến `code`, còn tham số đầu tiên dùng truy vấn
 `$this->type->adu`, như vậy ta phải thay `$this->type` bằng một `object` mà `object->adu = 'system'`
 
 Trong 3 class trong source code không có class nào có thuộc tính `adu` cả, tuy nhiên ta để ý class `do_nothing` có một magic method `__get()`

@@ -43,7 +43,7 @@ Với 1 bài buffer overflow, ta có khá nhiều hướng đi.
 
 Sau khi phân tích các đặc điểm trên, ta không thể dùng các cách tấn công như ret2system, ret2libc, ROPchain, ...Vì thế bài này sử dụng 1 kĩ thuật đặc biệt là [ret2dlresolve](https://gist.github.com/ricardo2197/8c7f6f5b8950ed6771c1cd3a116f7e62).
 
-#### Ret2dlresolve
+### Ret2dlresolve
 
 Phân tích một chút kĩ thuật `ret2dlresolve`, khi một chương trình liên kết động, chúng dùng một hàm `_dl_runtime_resolve` (mình gọi tắt là `resolver`) để tìm địa chỉ của 1 hàm trong thư viện libc được load lên memory trong lần đầu tiên được gọi. Hàm này có đầu vào là địa chỉ của một struct có cấu trúc đặc biệt. Việc ta làm là tạo ra một struct giả để đánh lừa `resolver` và khiến nó tìm địa chỉ của hàm `system` và thực thi chúng với input đầu vào của ta.
 

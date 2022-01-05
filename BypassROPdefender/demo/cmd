@@ -1,0 +1,18 @@
+/home/cobra/Desktop/pin/pin -t /home/cobra/Desktop/pin/source/tools/ROPdefender/obj-intel64/ROPdefender.so -- ./vuln
+
+ROPgadget --binary /usr/lib/x86_64-linux-gnu/libc-2.31.so | grep 'call qword ptr \|jmp qword ptr \|call r\|jmp r\|syscall' > ROP.txt
+
+gcc vuln.c -o vuln -no-pie -fno-stack-protector
+
+gcc test.c -o test -no-pie -fno-stack-protector --static
+
+ROPgadget --binary test --ropchain > test.txt
+
+/home/cobra/Desktop/pin/pin -t /home/cobra/Desktop/pin/source/tools/ROPdefender/obj-intel64/ROPdefender.so -- ./test
+
+(python2 test.py; cat) | ./test
+
+(python2 test.py; cat) | (/home/cobra/Desktop/pin/pin -t /home/cobra/Desktop/pin/source/tools/ROPdefender/obj-intel64/ROPdefender.so -- ./test)
+
+ROPgadget --binary /usr/lib/x86_64-linux-gnu/libc-2.31.so --ropchain  > libc2-31.txt
+

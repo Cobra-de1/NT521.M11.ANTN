@@ -1,0 +1,60 @@
+0x000000000004cf70 : pop rsi ; jmp qword ptr [rsi + 0xf]
+0x00000000001352a2 : pop rdx ; fdivr st(7) ; jmp qword ptr [rsi + 0x2e]
+0x0000000000040a82 : pop rdx ; idiv bh ; jmp qword ptr [rsi + 0x2e]
+0x000000000015cb57 : pop rdi ; std ; jmp qword ptr [rsi + 0xf]
+0x000000000012ee63 : pop rcx ; lodsd eax, dword ptr [rsi] ; int1 ; jmp qword ptr [rsi + 0xf]
+0x000000000006c0aa : pop rbx ; mov cl, 0xff ; jmp qword ptr [rsi + 0xf]
+0x00000000001421cf : pop rbp ; xor esi, ebp ; jmp qword ptr [rsi + 0xf]
+0x000000000015a180 : mov rax, qword ptr [rdi + 8] ; jmp qword ptr [rax + 0x40]
+0x000000000015a190 : mov rax, qword ptr [rdi + 8] ; jmp qword ptr [rax + 0x48]
+0x0000000000158db0 : mov rax, qword ptr [rdi + 8] ; jmp qword ptr [rax + 8]
+0x0000000000158da5 : mov rax, qword ptr [rdi + 8] ; jmp qword ptr [rax]
+0x0000000000152225 : pop rax ; mov rdi, r12 ; call qword ptr [rax + 0x20]
+0x000000000016006f : popfq ; pop rsi ; clc ; jmp qword ptr [rsi + 0xf]
+0x000000000012228f : pop rax ; pop rdi ; call rax
+0x00000000000489ec : mov eax, dword ptr [rsp] ; mov rsi, r12 ; mov rdi, r13 ; call rax
+0x0000000000153879 : pop rax ; call rax
+0x00000000000270a9 : mov rdx, qword ptr [rax] ; mov rax, qword ptr [rsp + 0x18] ; call rax
+0x000000000014cf50 : mov rdx, r12 ; mov rsi, rbp ; mov rdi, rbx ; call rax
+0x00000000000c0a42 : mov rsi, qword ptr [rsp + 0x18] ; call rbx
+0x00000000000479c0 : mov rdx, rbp ; mov rsi, r12 ; mov rdi, r13 ; call rbx
+0x00000000000482a2 : mov rdx, rbp ; mov rdi, r12 ; call rbx
+0x000000000002703e : call rbx
+0x000000000002abf6 : pop rax ; call r14
+0x000000000002c146 : pop rax ; call r15
+0x00000000001536da : pop rax ; jmp rcx
+0x00000000000cd9e5 : mov rcx, r12 ; mov rdx, r13 ; call rbx
+0x0000000000147dc4 : mov rcx, r13 ; call r10
+
+0x000000000008780e : pop rbx ; pop r12 ; jmp rax
+0x000000000008a89f : pop rbx ; pop rbp ; jmp rax
+
+
+
+0x000000000016006f : popfq ; pop rsi ; clc ; jmp qword ptr [rsi + 0xf]
+0x0000000000153879 : pop rax ; call rax
+0x000000000006c0aa : pop rbx ; mov cl, 0xff ; jmp qword ptr [rsi + 0xf]
+0x00000000001421cf : pop rbp ; xor esi, ebp ; jmp qword ptr [rsi + 0xf]
+0x000000000012ee63 : pop rcx ; lodsd eax, dword ptr [rsi] ; int1 ; jmp qword ptr [rsi + 0xf]
+0x00000000000482a2 : mov rdx, rbp ; mov rdi, r12 ; call rbx
+0x000000000012228f : pop rax ; pop rdi ; call rax
+0x00000000000c0a42 : mov rsi, qword ptr [rsp + 0x18] ; call rbx
+0x00000000001536da : pop rax ; jmp rcx
+0x00000000000e62f4 : mov eax, 0x3b ; syscall
+
+
+0x000000000003765d : pop rdi ; jmp rax
+0x00000000000e057f : pop rsi ; jmp rax
+0x0000000000087810 : pop rsp ; jmp rax
+
+0x0000000000153879 : pop rax ; call rax
+0x0000000000094ba8 : pop rbx ; jmp rax
+0x0000000000087b3f : pop rbp ; jmp rax
+0x0000000000037658 : pop r13 ; pop r14 ; pop r15 ; jmp rax
+0x000000000002c146 : pop rax ; call r15
+0x000000000014ce15 : mov rdx, r13 ; mov rsi, r12 ; mov rdi, rbp ; call rax
+0x000000000002b960 : pop rax ; call rbx
+
+pop rax and jump to rbx or r15
+need rbx or r15 to syscall
+
